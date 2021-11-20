@@ -14,11 +14,9 @@
 
                 <h1 class="my-4">{{ header|capfirst }}</h1>
                 <div class="list-group">
-                    <a href="#" class="list-group-item">Новинки</a>
-                    <a href="#" class="list-group-item">Одежда</a>
-                    <a href="#" class="list-group-item">Обувь</a>
-                    <a href="#" class="list-group-item">Аксессуары</a>
-                    <a href="#" class="list-group-item">Подарки</a>
+                    {% for pc in products_categories %}
+                        <a href="#" class="list-group-item">{{ pc|capfirst }}</a>
+                    {% endfor %}
                 </div>
 
             </div>
