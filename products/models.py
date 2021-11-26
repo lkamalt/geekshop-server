@@ -8,6 +8,9 @@ class ProductCategory(models.Model):
     # Данное поле может быть пустым
     description = models.TextField(blank=True, null=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Product(models.Model):
     name = models.CharField(max_length=256)
@@ -23,3 +26,6 @@ class Product(models.Model):
     quantity = models.PositiveIntegerField(default=0)
     # Задаем внешний ключ, oneToMany и каскадное удаление при удалении категории
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.name} | {self.category.name}'
