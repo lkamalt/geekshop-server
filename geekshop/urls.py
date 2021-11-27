@@ -15,6 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+# media 2/3
+from django.conf.urls.static import static
+# Более правильный спсоб импорта файла settings в Django
+from django.conf import settings
 
 from products.views import index, products, test_context
 
@@ -24,3 +28,9 @@ urlpatterns = [
     path('products/', products, name='products'),
     path('test-context/', test_context, name='test-context')
 ]
+
+# Если settings.DEBUG = True, значит работаем локально
+# media 3/3
+if settings.DEBUG:
+    # Включаем работу с медиафайлами
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

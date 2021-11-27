@@ -16,6 +16,7 @@ class Product(models.Model):
     name = models.CharField(max_length=256)
     # Класс, который хранит в себе путь до картинки или файла (FileField)
     # products_images - папка
+    # После загрузки изображений в media появится папка products_images, где будут храниться загруженные изображения
     image = models.ImageField(upload_to='products_images', blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     # max_digits - максимальное количество цифр до запятой
