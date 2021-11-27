@@ -3,9 +3,6 @@ from django.shortcuts import render
 
 from products.models import ProductCategory, Product
 
-# Путь к папке текущйего файла
-MODULE_DIR = os.path.dirname(__file__)
-
 
 def index(request):
     context = {
@@ -19,8 +16,6 @@ def products(request):
     categories = ProductCategory.objects.all()
     products = Product.objects.all()
 
-    # Путь к файлу goods.json
-    file_path = os.path.join(MODULE_DIR, 'fixtures/goods.json')
     context = {
         'title': 'GeekShop - Каталог',
         'header': 'GeekShop',
