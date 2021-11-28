@@ -26,7 +26,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
     path('products/', include('products.urls', namespace='products')),
-    path('test-context/', test_context, name='test-context')
+    path('users/', include('users.urls', namespace='users')),
+    path('test-context/', test_context, name='test-context'),
 ]
 
 # Если settings.DEBUG = True, значит работаем локально
